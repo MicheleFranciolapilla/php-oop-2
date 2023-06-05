@@ -7,7 +7,7 @@
         public                  $brand;
         public                  $description;
         protected   array       $features_array = [];
-        protected               $img_url;
+        protected   string      $img_url;
         private     Bool_Array  $results;
 
         public  function __construct($_brand, $_description, $_img_url)
@@ -18,7 +18,7 @@
             $this->results = new Bool_Array();
         }
 
-        public  function get_img_url()
+        public  function get_img_url() : string
         {
             return $this->img_url;
         }

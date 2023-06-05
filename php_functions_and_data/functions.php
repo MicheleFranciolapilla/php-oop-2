@@ -42,7 +42,7 @@
             $key = mt_rand(0, count($keys) - 1);
             $inner_array_index = mt_rand(0,count($GLOBALS['products'][$category->get_int_category()][$keys[$key]]) - 1);
             $inner_array = $GLOBALS['products'][$category->get_int_category()][$keys[$key]][$inner_array_index];
-            $item_to_add = new Pet_Item($inner_array[0], $inner_array[2], new Features($keys[$key], $inner_array[1], ""), $category);
+            $item_to_add = new Pet_Item($inner_array[0], $inner_array[2], new Features($keys[$key], $inner_array[1], $inner_array[3]), $category);
             $found = false;
             for ($j = 0; $j < $i; $j++)
             {
@@ -93,10 +93,10 @@
         }
     }
 
-    function set_item_image(Pet_Item $item) : string
+    function set_item_image(string $img_url) : string
     {
-        $response = $item->features->get_img_url();
-        if ($response = "")
+        $response = $img_url;
+        if ($response == "")
             $response = $GLOBALS['backup_img'];
         return $response;
     }

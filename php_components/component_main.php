@@ -9,10 +9,10 @@
             foreach($current_array as $index => $item):
         ?>
         <div class="card">
-            <?php
-                echo "ciao" . strval(set_item_image($item));
-            ?>
-            <!-- <img src=" <?php echo set_item_image($item) ?> " alt=""> -->
+                <!-- var_dump($item->features->get_img_url()); -->
+                <!-- var_dump(set_item_image($item->features->get_img_url())); -->
+                <!-- echo '<img src"' . set_item_image($item->features->get_img_url()) . '">'; -->
+                <img src="<?php echo $item->features->get_img_url() ?>" alt="">
         </div>
         <?php
             endforeach;

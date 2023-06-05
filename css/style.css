@@ -77,15 +77,13 @@ aside:hover
     height: 100%;
     gap: var(--card_set_gap);
     flex-wrap: wrap;
-    overflow: hidden;
-    background-color: black;
+    /* overflow: hidden; */
 }
 
 #card_set > .card
 {
     flex-basis: calc((100% - (var(--card_set_gap) * (var(--cards_per_row) - 1))) / var(--cards_per_row));
     height: 100%;
-    background-color: darkgrey;
 }
 
 .card img
