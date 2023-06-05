@@ -8,11 +8,13 @@
         <?php
             foreach($current_array as $index => $item):
         ?>
-        <div class="card">
-                <!-- var_dump($item->features->get_img_url()); -->
-                <!-- var_dump(set_item_image($item->features->get_img_url())); -->
-                <!-- echo '<img src"' . set_item_image($item->features->get_img_url()) . '">'; -->
-                <img src="<?php echo $item->features->get_img_url() ?>" alt="">
+        <div class="card py-2 d-flex flex-column justify-content-between align-items-center">
+            <img src="<?php echo $item->features->get_img_url() ?>" alt="<?php echo $item->features->description ?>">
+            <div class="info border border-2 border-dark rounded-3 bg-info">
+                <h4><?php echo $item->features->brand ?></h4>
+                <h5><?php echo $item->get_product() ?></h5>
+                <h5 class="align-self-end"><?php echo 'Prezzo: ' . $item->get_price() . ' &euro;' ?></h5>
+            </div>
         </div>
         <?php
             endforeach;

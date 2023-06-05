@@ -73,11 +73,10 @@ aside:hover
 #card_set
 {
     width: calc(80%);
-    /* width: 1600px; */
     height: 100%;
     gap: var(--card_set_gap);
     flex-wrap: wrap;
-    /* overflow: hidden; */
+    overflow: hidden;
 }
 
 #card_set > .card
@@ -88,7 +87,18 @@ aside:hover
 
 .card img
 {
-    width: 100%;
-    height: 90%;
+    width: 90%;
+    height: 65%;
     object-fit: cover;
+    object-position: center;
+}
+
+.card .info
+{
+    width: 95%;
+    height: 33%;
+    display: flex;
+    flex-direction: column;
+    padding: 0.7rem 0.5rem;
+    gap: 0.5rem;
 }
