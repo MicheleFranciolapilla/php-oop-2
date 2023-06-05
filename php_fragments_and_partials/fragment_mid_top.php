@@ -1,3 +1,3 @@
-    <title>Document</title>
+    <title>Happy Pet</title>
 </head>
 <body>

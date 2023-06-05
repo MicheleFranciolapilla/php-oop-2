@@ -6,7 +6,6 @@
     include_once __DIR__ . '/../classes/extended/pet_item.php';
     include_once __DIR__ . './functions.php';
 
-
     $products       =   [
                             // Cani
                             [
@@ -132,27 +131,20 @@
                             "Fish"      =>  "fa-fish-fins",
                             "Turtle"    =>  "fa-turtle"
                         ];
+    $max_items_nr   =   37;
+    $max_amount     =   25;
+    $backup_img     =   '';
 
-    $backup_img = '';
-    $max_items_nr = 37;
-    $total_items = 0;
-    set_total_items();
-    $items_collection = [];
-    create_database();
-    $max_amount = 25;
-    set_amounts();
-    $current_array = [];
-    $menu_items = [];
-    // for ($i = 0; $i < $total_items; $i++)
-    // {
-    //     echo "<br>";
-    //     echo "Elemento nr " . $i +1 . "<br>";
-    //     echo "Pet: " . strval($items_collection[$i]->get_category()->get_int_category()) . " " . $items_collection[$i]->get_category()->get_str_category() . "<br>";
-    //     echo "Prodotto: " . strval($items_collection[$i]->get_product()) . "<br>";
-    //     echo "Marca: " . $items_collection[$i]->features->brand . "<br>";
-    //     echo "Descrizione: " . $items_collection[$i]->features->description . "<br>";
-    //     echo "Quantitàà " . strval($items_collection[$i]->get_amount()) . "<br>";
-    //     echo "Prezzo in euro: " . strval($items_collection[$i]->get_price()) . "<br>";
-    //     echo "_______________________________________________________________________ <br>";
-    // }
+    if ($_SESSION['step'] === 'started')
+    {
+        $total_items = 0;
+        set_total_items();
+        $items_collection = [];
+        create_database();
+        set_amounts();
+        $current_array = [];
+        $menu_items = [];
+        $_SESSION['step'] = 'created';
+    }
+
 ?>
