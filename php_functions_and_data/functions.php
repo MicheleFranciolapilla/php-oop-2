@@ -96,9 +96,8 @@
     function set_item_image(Pet_Item $item) : string
     {
         $response = $item->features->get_img_url();
-        if ($response == "")
+        if ($response = "")
             $response = $GLOBALS['backup_img'];
-        var_dump($response);
         return $response;
     }
 

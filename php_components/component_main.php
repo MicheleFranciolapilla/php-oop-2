@@ -9,7 +9,10 @@
             foreach($current_array as $index => $item):
         ?>
         <div class="card">
-            <img src="<?php echo set_item_image($item) ?>" alt="">
+            <?php
+                echo "ciao" . strval(set_item_image($item));
+            ?>
+            <!-- <img src=" <?php echo set_item_image($item) ?> " alt=""> -->
         </div>
         <?php
             endforeach;
