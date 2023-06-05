@@ -5,7 +5,7 @@
             foreach($menu_items as $item):
         ?>
             <li>
-                <a href="<?php echo strtolower($item) . 's.php' ?>">
+                <a href="./pages/<?php echo strtolower($item) . 's.php' ?>">
                     <?php echo $item ?>
                 </a>
             </li>
