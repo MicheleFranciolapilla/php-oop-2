@@ -85,6 +85,22 @@ aside:hover
     height: 100%;
 }
 
+.card .f_a_icon
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    background-color: lightslategray;
+}
+
+.f_a_icon i
+{
+    font-size: 1.3rem;
+}
+
 .card img
 {
     width: 90%;

@@ -6,7 +6,7 @@
 
     class Pet_Item extends Base_Item
     {
-        protected   Pet_Category    $category;
+        public      Pet_Category    $category;
         protected                   $amount;
         protected   bool            $is_selected;
 

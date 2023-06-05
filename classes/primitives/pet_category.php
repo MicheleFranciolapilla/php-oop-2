@@ -22,6 +22,11 @@
         {
             return $this->category_str;
         }
+
+        public  function get_icon_tag() : string
+        {
+            return '<i class="' . implode(" ", $this->f_a_classes) . '"></i>';
+        }
     }
     
 ?>
