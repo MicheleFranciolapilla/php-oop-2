@@ -8,13 +8,6 @@
     --cards_per_row     : 3;
 }
 
-/* *
-{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-} */
-
 a
 {
     text-decoration: none;
@@ -23,6 +16,25 @@ a
 header
 {
     height: var(--header_height);
+}
+
+.pages_top_area
+{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    padding: 0 1rem;
+    height: 90%;
+    background-color: lightgrey;
+    border: 2px solid darkgray;
+    border-radius: 5px;
+    top: 5%;
+    left: 2.5rem;
+}
+
+.pages_top_area > h6
+{
+    color: rgb(74, 71, 71);
 }
 
 nav

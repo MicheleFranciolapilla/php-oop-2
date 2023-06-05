@@ -1,10 +1,13 @@
 <?php
 
-    include_once __DIR__ . '/../classes/primitives/pet_category.php';
-    include_once __DIR__ . '/../classes/primitives/base_item.php';
-    include_once __DIR__ . '/../classes/primitives/features.php';
-    include_once __DIR__ . '/../classes/extended/pet_item.php';
-    include_once __DIR__ . './functions.php';
+    require_once __DIR__ . './session_methods.php';
+    session_check_and_start();
+
+    require_once __DIR__ . '/../classes/primitives/pet_category.php';
+    require_once __DIR__ . '/../classes/primitives/base_item.php';
+    require_once __DIR__ . '/../classes/primitives/features.php';
+    require_once __DIR__ . '/../classes/extended/pet_item.php';
+    require_once __DIR__ . './functions.php';
 
     $products       =   [
                             // Cani

@@ -1,7 +1,5 @@
 <?php
 
-    // require_once __DIR__ . '/../classes/primitives/pet_category.php';
-
     function set_total_items()
     {
         do

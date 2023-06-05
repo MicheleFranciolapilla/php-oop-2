@@ -1,12 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>pagina di prova</title>
-</head>
-<body>
-    <h1>ciao amanti dei cani</h1>
-</body>
-</html>
+<?php
+
+    // session_start();
+    echo " status: ";
+    var_dump(session_status());
+    $_SESSION['page'] = 'Dogs';
+    // require_once __DIR__ . '/../php_functions_and_data/database.php';
+    // require_once __DIR__ . '/../php_fragments_and_partials/partial_top.php';
+    // require_once __DIR__ . '/../php_components/component_header.php';
+    // require_once __DIR__ . '/../php_components/component_nav_menu.php';
+    // require_once __DIR__ . '/../php_components/component_main.php';
+    // require_once __DIR__ . '/../php_fragments_and_partials/partial_bottom.php';
+    var_dump($_SESSION['step']);
+    require_once __DIR__ . './php_functions_and_data/database.php';
+    require_once __DIR__ . './php_fragments_and_partials/partial_top.php';
+    require_once __DIR__ . './php_components/component_header.php';
+    require_once __DIR__ . './php_components/component_nav_menu.php';
+    require_once __DIR__ . './php_components/component_main.php';
+    require_once __DIR__ . './php_fragments_and_partials/partial_bottom.php';
+
+?>
