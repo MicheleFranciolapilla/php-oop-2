@@ -36,9 +36,9 @@
     function check_if_repeated(array $item_to_check)
     {
         $repeated = false;
-        for ($j = 0; $j < count($_SESSION['items_collection']); $j++)
+        for ($j = 0; $j < count($_SESSION['data_collection']); $j++)
         {
-            if ($item_to_check == $_SESSION['items_collection'][$j])
+            if ($item_to_check == $_SESSION['data_collection'][$j])
             {
                 $repeated = true;
                 break;
@@ -66,19 +66,42 @@
                                 "img_url"       => $inner_array[3],
                             ];
             if (!check_if_repeated($single_item))
-                array_push($_SESSION['items_collection'], $single_item);
+            {
+                array_push($_SESSION['data_collection'], $single_item);
+                array_push($_SESSION['amounts'], mt_rand(1, $GLOBALS['max_amount']));
+            }
             else
                 $i--;
         }
     }
 
-    // function set_amounts()
-    // {
-    //     foreach($_SESSION['items_collection'] as $item)
-    //     {
-    //         $item->set_amount(mt_rand(1, $GLOBALS['max_amount']));
-    //     }
-    // }
+    function create_items_collection()
+    {
+        $pet_keys = array_keys($GLOBALS['categories']);
+        foreach($_SESSION['data_collection'] as $index => $data)
+        {
+            $pet_item = new Pet_Item( $data["product"], $data["price"], new Features( $data["brand"], $data["description"], $data["img_url"]), $data["category"]);
+            $pet_str = $pet_keys[$data["category"]];
+            $pet_item->set_pet_str($pet_str);
+            $pet_item->set_classes(["fa-solid", $GLOBALS['categories'][$pet_str]]);
+            $pet_item->set_amount($_SESSION['amounts'][$index]);
+            array_push($GLOBALS['items_collection'], $pet_item);
+        }
+        // for ($index = 0; $index < count($_SESSION['data_collection']); $index++)
+        // {
+        //     $pet_item = new Pet_Item(   $_SESSION['data_collection']["product"], 
+        //                                 $_SESSION['data_collection']["price"],
+        //                                 new Features(   $_SESSION['data_collection']["brand"],
+        //                                                 $_SESSION['data_collection']["description"],
+        //                                                 $_SESSION['data_collection']["img_url"]),
+        //                                 $_SESSION['data_collection']["category"]);
+        //     $pet_str = $pet_keys[$_SESSION['data_collection']["category"]];
+        //     $pet_item->set_pet_str($pet_str);
+        //     $pet_item->set_classes(["fa-solid", $GLOBALS['categories'][$pet_str]]);
+        //     $pet_item->set_amount($_SESSION['amounts'][$index]);
+
+        // }
+    }
 
     function set_menu_items()
     {

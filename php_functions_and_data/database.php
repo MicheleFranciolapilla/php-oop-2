@@ -147,17 +147,16 @@
     $max_items_nr   =   37;
     $max_amount     =   25;
     $backup_img     =   '';
-    // $current_array  =   [];
     $menu_items     =   [];
 
     if ($_SESSION['step'] === 'started')
     {
-        // $total_items = 0;
-        // set_total_items();
-        $_SESSION['items_collection'] = [];
-        create_collection();
-        // set_amounts();
         $_SESSION['step'] = 'created';
+        $_SESSION['data_collection'] = [];
+        $_SESSION['amounts'] = [];
+        create_collection();
     }
 
+    $items_collection = [];
+    create_items_collection();
 ?>
