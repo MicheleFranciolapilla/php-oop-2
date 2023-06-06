@@ -6,7 +6,7 @@
     {
         public                  $brand;
         public                  $description;
-        protected   array       $features_array = [];
+        protected   array       $features_array;
         protected   string      $img_url;
         private     Bool_Array  $results;
 
@@ -14,6 +14,7 @@
         {
             $this->brand = $_brand;
             $this->description = $_description;
+            $this->features_array = [];
             $this->img_url = $_img_url;
             $this->results = new Bool_Array();
         }

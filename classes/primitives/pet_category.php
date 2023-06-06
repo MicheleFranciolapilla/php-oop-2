@@ -2,7 +2,7 @@
 
     class Pet_Category
     {
-        protected   string  $category_str;
+        public      string  $category_str;
         protected   int     $category_int;
         private     array   $f_a_classes = [];
 
@@ -18,7 +18,7 @@
             return $this->category_int;
         }
 
-        public  function get_str_category()
+        public  function get_str_category() : string
         {
             return $this->category_str;
         }

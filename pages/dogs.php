@@ -1,7 +1,7 @@
 <?php
     require_once __DIR__ . '/../php_functions_and_data/session_methods.php';
     session_check_and_start();
-    $_SESSION['page'] = 'dogs';
+    $_SESSION['page'] = 'Dog';
     require_once __DIR__ . '/../php_functions_and_data/functions.php';
     require_once __DIR__ . '/../php_functions_and_data/database.php';
     require_once __DIR__ . '/../php_fragments_and_partials/partial_top.php';

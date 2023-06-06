@@ -4,6 +4,7 @@
     session_check_and_start();
 
     require_once __DIR__ . '/../classes/primitives/pet_category.php';
+    require_once __DIR__ . '/../classes/primitives/pet_trait.php';
     require_once __DIR__ . '/../classes/primitives/base_item.php';
     require_once __DIR__ . '/../classes/primitives/features.php';
     require_once __DIR__ . '/../classes/extended/pet_item.php';
@@ -128,6 +129,15 @@
                             ]
                         ];       
     
+    $single_item    =   [
+                            "category"      =>  0,
+                            "brand"         =>  "",
+                            "product"       =>  "",
+                            "description"   =>  "",
+                            "price"         =>  0,
+                            "img_url"       =>  ""
+                        ]; 
+
     $categories     =   [
                             "Dog"       =>  "fa-dog",
                             "Cat"       =>  "fa-cat",
@@ -144,7 +154,9 @@
     {
         $total_items = 0;
         set_total_items();
-        $items_collection = [];
+        // $items_collection = [];
+        $_SESSION['my_array'] = [];
+        $_SESSION['items_collection'] = [];
         create_database();
         set_amounts();
         $_SESSION['step'] = 'created';

@@ -3,10 +3,12 @@
     include_once __DIR__ . '/../primitives/base_item.php';
     include_once __DIR__ . '/../primitives/pet_category.php';
     include_once __DIR__ . '/../primitives/features.php';
+    include_once __DIR__ . '/../primitives/pet_trait.php';
 
     class Pet_Item extends Base_Item
     {
         public      Pet_Category    $category;
+        // use                         Pet_Trait;
         protected                   $amount;
         protected   bool            $is_selected;
 
