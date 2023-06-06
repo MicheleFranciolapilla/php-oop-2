@@ -102,6 +102,7 @@ main
 {
     flex-basis: calc((100% - (var(--card_set_gap) * (var(--cards_per_row) - 1))) / var(--cards_per_row));
     height: calc((100% - (var(--card_set_gap) * (var(--cards_per_col) - 1))) / var(--cards_per_col));
+    border: 3px solid lightgreen;
 }
 
 .card .f_a_icon
@@ -110,20 +111,20 @@ main
     justify-content: center;
     align-items: center;
     position: absolute;
-    top: 0.5rem;
-    right: 0.5rem;
+    top: 0.25rem;
+    right: 0.25rem;
     background-color: lightslategray;
 }
 
 .f_a_icon i
 {
-    font-size: 1.3rem;
+    font-size: 1rem;
 }
 
 .card img
 {
-    width: 90%;
-    height: 65%;
+    width: 85%;
+    height: 60%;
     object-fit: cover;
     object-position: center;
 }
@@ -131,11 +132,17 @@ main
 .card .info
 {
     width: 95%;
-    height: 33%;
+    height: 37%;
     display: flex;
     flex-direction: column;
-    padding: 0.7rem 0.5rem;
-    gap: 0.5rem;
+    padding: 5px;
+    gap: 5px;
+    font-weight: 800;
+}
+
+.card .info div > span
+{
+    font-size: x-small;
 }
 
 footer

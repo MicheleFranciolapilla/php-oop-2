@@ -13,9 +13,11 @@
             </div>
             <img src="<?php echo $item->features->get_img_url() ?>" alt="<?php echo $item->features->description ?>">
             <div class="info border border-2 border-dark rounded-3 bg-info">
-                <h4><?php echo $item->features->brand ?></h4>
-                <h5><?php echo $item->get_product() ?></h5>
-                <h5 class="align-self-end"><?php echo 'Prezzo: ' . $item->get_price() . ' &euro;' ?></h5>
+                <span><?php echo $item->features->brand ?></span>
+                <div class="d-flex justify-content-between">
+                    <span><?php echo $item->get_product() ?></span>
+                    <span><?php echo 'Prezzo: ' . $item->get_price() . ' &euro;' ?></span>
+                </div>
             </div>
         </div>
         <?php
