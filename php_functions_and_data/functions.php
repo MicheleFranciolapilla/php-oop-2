@@ -57,9 +57,6 @@
             else
             {
                 $i--;
-                // echo "<br>" . strval($i + 1) . $j . "<br>";
-                // var_dump($item_to_add);
-                // echo "<br>----------------------------------------";
             }
         }
     }
@@ -74,20 +71,21 @@
 
     function set_menu_items()
     {
-        // var_dump($_SESSION['page']);
-        if ($_SESSION['page'] = 'main')
+        if ($_SESSION['page'] === 'main')
         {
             $GLOBALS['menu_items'] = array_keys($GLOBALS['categories']);
-            // print_r($GLOBALS['menu_items']);
+        }
+        else
+        {
+            $GLOBALS['menu_items'] = ['<i class="fa-solid fa-backward"></i> Indietro'];
         }
     }
 
     function set_current_array()
     {
-        if ($_SESSION['page'] = 'main')
+        if ($_SESSION['page'] === 'main')
         {
             $GLOBALS['current_array'] = $GLOBALS['items_collection'];
-            // var_dump($GLOBALS['current_array']);
         }
     }
 

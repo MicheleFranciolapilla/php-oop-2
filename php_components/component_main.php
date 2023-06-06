@@ -2,9 +2,8 @@
     require_once __DIR__ . '/../php_functions_and_data/functions.php';
     set_current_array(); 
 ?>
-<main class="d-flex justify-content-between align-items-center mx-auto my-4">
-    <aside id="left"><</aside>
-    <section id="card_set" class="d-flex border border-3 border-secondary rounded-3 h-100">
+<main>
+    <section id="card_set" class="d-flex border border-3 border-secondary rounded-3">
         <?php
             foreach($current_array as $index => $item):
         ?>
@@ -23,5 +22,4 @@
             endforeach;
         ?>
     </section>
-    <aside id="right">></aside>
 </main>

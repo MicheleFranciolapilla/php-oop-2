@@ -17,7 +17,7 @@
         }
     }
 
-    function session_check_and_set()
+    function session_check_if_new()
     {
         if ((isset($_SESSION['new'])) && ($_SESSION['new']))
         {
