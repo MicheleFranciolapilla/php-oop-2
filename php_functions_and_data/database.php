@@ -137,6 +137,8 @@
     $max_items_nr   =   37;
     $max_amount     =   25;
     $backup_img     =   '';
+    $current_array  =   [];
+    $menu_items     =   [];
 
     if ($_SESSION['step'] === 'started')
     {
@@ -145,8 +147,6 @@
         $items_collection = [];
         create_database();
         set_amounts();
-        $current_array = [];
-        $menu_items = [];
         $_SESSION['step'] = 'created';
     }
 
