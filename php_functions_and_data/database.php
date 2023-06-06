@@ -129,14 +129,14 @@
                             ]
                         ];       
     
-    $single_item    =   [
-                            "category"      =>  0,
-                            "brand"         =>  "",
-                            "product"       =>  "",
-                            "description"   =>  "",
-                            "price"         =>  0,
-                            "img_url"       =>  ""
-                        ]; 
+    // $single_item    =   [
+    //                         "category"      =>  0,
+    //                         "brand"         =>  "",
+    //                         "product"       =>  "",
+    //                         "description"   =>  "",
+    //                         "price"         =>  0,
+    //                         "img_url"       =>  ""
+    //                     ]; 
 
     $categories     =   [
                             "Dog"       =>  "fa-dog",
@@ -147,18 +147,16 @@
     $max_items_nr   =   37;
     $max_amount     =   25;
     $backup_img     =   '';
-    $current_array  =   [];
+    // $current_array  =   [];
     $menu_items     =   [];
 
     if ($_SESSION['step'] === 'started')
     {
-        $total_items = 0;
-        set_total_items();
-        // $items_collection = [];
-        $_SESSION['my_array'] = [];
+        // $total_items = 0;
+        // set_total_items();
         $_SESSION['items_collection'] = [];
-        create_database();
-        set_amounts();
+        create_collection();
+        // set_amounts();
         $_SESSION['step'] = 'created';
     }
 

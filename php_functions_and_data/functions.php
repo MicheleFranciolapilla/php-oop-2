@@ -10,77 +10,75 @@
     {
         do
         {
-            $GLOBALS['total_items'] = mt_rand(0, $GLOBALS['max_items_nr']);
-        } while ($GLOBALS['total_items'] < ($GLOBALS['max_items_nr'] / 2));
+            $total_items = mt_rand(0, $GLOBALS['max_items_nr']);
+        } while ($total_items < ($GLOBALS['max_items_nr'] / 2));
+        return $total_items;
     }
 
-    function create_category() : Pet_Category
+    function randomize_pet() : int
     {
         $easing_bool = false;
-        $keys = array_keys($GLOBALS['categories']);
+        $pet_keys = array_keys($GLOBALS['categories']);
         do
         {
-            $index = mt_rand(0,count($GLOBALS['categories']) - 1);
+            $index = mt_rand(0, count($GLOBALS['categories']) - 1);
             $easing_rand = mt_rand(0,10);
-            if ($index == 0)
-                $easing_bool = true;
-            else
-            {
-                if (($index == 1) && ($easing_rand <= 8))
+            if
+                (($index == 0) ||
+                (($index == 1) && ($easing_rand <= 8)) ||
+                (($index == 2) && ($easing_rand <= 5)) ||
+                (($index == 3) && ($easing_rand < 3)))
                     $easing_bool = true;
-                elseif (($index == 2) && ($easing_rand <= 5))
-                    $easing_bool = true;
-                elseif (($index == 3) && ($easing_rand < 3))
-                    $easing_bool = true;
-            }
         } while (!$easing_bool);
-        $GLOBALS['single_item']["category"] = $index;
-        return new Pet_Category($keys[$index], $index, ["fa-solid",$GLOBALS['categories'][$keys[$index]]]);
+        return $index;
     }
 
-    function create_database()
+    function check_if_repeated(array $item_to_check)
     {
-        for ($i = 0; $i < $GLOBALS['total_items']; $i++)
+        $repeated = false;
+        for ($j = 0; $j < count($_SESSION['items_collection']); $j++)
         {
-            $category = create_category();
-            $keys = array_keys($GLOBALS['products'][$category->get_int_category()]);
+            if ($item_to_check == $_SESSION['items_collection'][$j])
+            {
+                $repeated = true;
+                break;
+            }
+        }
+        return $repeated;
+    }
+
+    function create_collection()
+    {
+        $total_items = set_total_items();
+        for ($i = 0; $i < $total_items; $i++)
+        {
+            $pet = randomize_pet();
+            $keys = array_keys($GLOBALS['products'][$pet]);
             $key = mt_rand(0, count($keys) - 1);
-            $inner_array_index = mt_rand(0,count($GLOBALS['products'][$category->get_int_category()][$keys[$key]]) - 1);
-            $inner_array = $GLOBALS['products'][$category->get_int_category()][$keys[$key]][$inner_array_index];
-            $item_to_add = new Pet_Item($inner_array[0], $inner_array[2], new Features($keys[$key], $inner_array[1], $inner_array[3]), $category);
-            $GLOBALS['single_item']["brand"] = $keys[$key];
-            $GLOBALS['single_item']["product"] = $inner_array[0];
-            $GLOBALS['single_item']["description"] = $inner_array[1];
-            $GLOBALS['single_item']["price"] = $inner_array[2];
-            $GLOBALS['single_item']["img_url"] = $inner_array[3];
-            $_SESSION['my_array'][] = $GLOBALS['single_item'];
-            $found = false;
-            for ($j = 0; $j < $i; $j++)
-            {
-                if ($item_to_add->is_it_you($_SESSION['items_collection'][$j]))
-                    {
-                        $found = true;
-                        break;
-                    }
-            }
-            if (!$found)
-            {
-                array_push($_SESSION['items_collection'], $item_to_add);
-            }
+            $inner_array_index = mt_rand(0,count($GLOBALS['products'][$pet][$keys[$key]]) - 1);
+            $inner_array = $GLOBALS['products'][$pet][$keys[$key]][$inner_array_index];
+            $single_item =  [
+                                "category"      => $pet,
+                                "brand"         => $keys[$key],
+                                "product"       => $inner_array[0],
+                                "description"   => $inner_array[1],
+                                "price"         => $inner_array[2],
+                                "img_url"       => $inner_array[3],
+                            ];
+            if (!check_if_repeated($single_item))
+                array_push($_SESSION['items_collection'], $single_item);
             else
-            {
                 $i--;
-            }
         }
     }
 
-    function set_amounts()
-    {
-        foreach($_SESSION['items_collection'] as $item)
-        {
-            $item->set_amount(mt_rand(1, $GLOBALS['max_amount']));
-        }
-    }
+    // function set_amounts()
+    // {
+    //     foreach($_SESSION['items_collection'] as $item)
+    //     {
+    //         $item->set_amount(mt_rand(1, $GLOBALS['max_amount']));
+    //     }
+    // }
 
     function set_menu_items()
     {

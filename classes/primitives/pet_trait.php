@@ -5,15 +5,19 @@
         public  int     $pet_int;
         public  array   $pet_classes;
 
-        public  function set_basics($_pet_str, $_pet_int)
+        public  function set_pet_str($_pet_str)
         {
             $this->pet_str = $_pet_str;
-            $this->pet_int = $_pet_int;
         }
 
         public  function get_pet_str()
         {
             return $this->pet_str;
+        }
+
+        public  function set_pet_int($_pet_int)
+        {
+            $this->pet_int = $_pet_int;
         }
 
         public  function get_pet_int()

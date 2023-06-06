@@ -7,6 +7,8 @@
     <section id="card_set" class="d-flex border border-3 border-secondary rounded-3">
         <?php
         var_dump($_SESSION['my_array']);
+        var_dump($_SESSION['items_collection']);
+
             $page = $_SESSION['page'];
             $counter = 0;
             foreach($_SESSION['items_collection'] as $index => $item):
