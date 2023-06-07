@@ -2,11 +2,7 @@
 
     function set_total_items()
     {
-        do
-        {
-            $total_items = mt_rand(0, $GLOBALS['max_items_nr']);
-        } while ($total_items < ($GLOBALS['max_items_nr'] / 2));
-        return $total_items;
+        return mt_rand($GLOBALS['min_items_nr'], $GLOBALS['max_items_nr']);
     }
 
     function randomize_pet() : int
@@ -41,9 +37,16 @@
         return $repeated;
     }
 
+    function init_counters()
+    {
+        for ($i = 0; $i < count($GLOBALS['categories']); $i++)
+            $_SESSION['category_counters'][$i] = 0;
+    }
+
     function create_collection()
     {
         $total_items = set_total_items();
+        init_counters();
         for ($i = 0; $i < $total_items; $i++)
         {
             $pet = randomize_pet();
@@ -63,6 +66,7 @@
             {
                 array_push($_SESSION['data_collection'], $single_item);
                 array_push($_SESSION['amounts'], mt_rand(1, $GLOBALS['max_amount']));
+                $_SESSION['category_counters'][$pet]++;
             }
             else
                 $i--;
@@ -117,4 +121,5 @@
             $GLOBALS['current_array'] = $temporary_array;
         }
     }
+
 ?>

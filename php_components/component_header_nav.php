@@ -19,7 +19,7 @@
     <nav class="d-flex bg-success">
         <ul id="menu_items" class="d-flex px-5">
             <?php
-                foreach($menu_items as $item):
+                foreach($menu_items as $index => $item):
             ?>
                     <li>
                         <?php
@@ -28,12 +28,14 @@
                                 <a href="<?php echo strtolower($item) . 's.php' ?>">
                                     <?php echo $item ?>
                                 </a>
+                                <span class="counter"><?= $_SESSION['category_counters'][$index] ?></span>
                         <?php
                             else:
                         ?>
                                 <a href="main_page.php">
                                     <?php echo $item ?>
                                 </a>
+                                <span class="counter"><?= count($GLOBALS['items_collection']) ?></span>
                         <?php
                             endif;
                         ?>

@@ -134,16 +134,17 @@
                             "Fish"      =>  "fa-fish-fins",
                             "Turtle"    =>  "fa-turtle"
                         ];
+    $min_items_nr   =   10;
     $max_items_nr   =   37;
     $max_amount     =   25;
-    $backup_img     =   '';
     $menu_items     =   [];
 
     if ($_SESSION['step'] === 'started')
     {
-        $_SESSION['step'] = 'created';
-        $_SESSION['data_collection'] = [];
-        $_SESSION['amounts'] = [];
+        $_SESSION['step']               = 'created';
+        $_SESSION['data_collection']    = [];
+        $_SESSION['amounts']            = [];
+        $_SESSION['category_counters']  = [];
         create_collection();
     }
 
