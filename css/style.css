@@ -5,7 +5,7 @@
     --main_width        : 90%;
     --main_height       : 60vh;
     --card_set_gap      : 1rem;
-    --cards_per_row     : 6;
+    --cards_per_row     : 5;
     --cards_per_col     : 2;
     --footer_height     : 7vh;
 }
@@ -80,7 +80,7 @@ nav *
 
 #menu_items a:hover
 {
-    color: greenyellow;
+    color: lightgreen;
 } 
 
 #menu_items .counter
@@ -108,6 +108,7 @@ main
 {
     width: calc(100%);
     height: calc(100%);
+    padding: 5px;
     gap: var(--card_set_gap);
     flex-wrap: wrap;
     overflow: auto;
