@@ -1,11 +1,5 @@
 <?php
 
-    require_once __DIR__ . '/../classes/primitives/base_item.php';
-    require_once __DIR__ . '/../classes/primitives/features.php';
-    require_once __DIR__ . '/../classes/primitives/pet_category.php';
-    require_once __DIR__ . '/../classes/extended/pet_item.php';
-    require_once __DIR__ . '/../classes/primitives/pet_trait.php';
-
     function set_total_items()
     {
         do
@@ -87,20 +81,6 @@
             $pet_item->set_amount($_SESSION['amounts'][$index]);
             array_push($GLOBALS['items_collection'], $pet_item);
         }
-        // for ($index = 0; $index < count($_SESSION['data_collection']); $index++)
-        // {
-        //     $pet_item = new Pet_Item(   $_SESSION['data_collection']["product"], 
-        //                                 $_SESSION['data_collection']["price"],
-        //                                 new Features(   $_SESSION['data_collection']["brand"],
-        //                                                 $_SESSION['data_collection']["description"],
-        //                                                 $_SESSION['data_collection']["img_url"]),
-        //                                 $_SESSION['data_collection']["category"]);
-        //     $pet_str = $pet_keys[$_SESSION['data_collection']["category"]];
-        //     $pet_item->set_pet_str($pet_str);
-        //     $pet_item->set_classes(["fa-solid", $GLOBALS['categories'][$pet_str]]);
-        //     $pet_item->set_amount($_SESSION['amounts'][$index]);
-
-        // }
     }
 
     function set_menu_items()
@@ -129,7 +109,6 @@
             $collection = $_SESSION['items_collection'];
             foreach($collection as $index => $item)
             {
-                // $pet = new Pet_Item("",0,new Features("","",""),new Pet_Category("",0,[]));
                 $pet = $item;
                 var_dump($item);
                 if ($pet->category->get_str_category() == $_SESSION['page'])
@@ -138,13 +117,4 @@
             $GLOBALS['current_array'] = $temporary_array;
         }
     }
-
-    function set_item_image(string $img_url) : string
-    {
-        $response = $img_url;
-        if ($response == "")
-            $response = $GLOBALS['backup_img'];
-        return $response;
-    }
-
 ?>

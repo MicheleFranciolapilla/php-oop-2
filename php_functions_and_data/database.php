@@ -3,11 +3,10 @@
     require_once __DIR__ . './session_methods.php';
     session_check_and_start();
 
-    require_once __DIR__ . '/../classes/primitives/pet_category.php';
-    require_once __DIR__ . '/../classes/primitives/pet_trait.php';
-    require_once __DIR__ . '/../classes/primitives/base_item.php';
-    require_once __DIR__ . '/../classes/primitives/features.php';
-    require_once __DIR__ . '/../classes/extended/pet_item.php';
+    require_once __DIR__ . '/../classes_and_traits/traits/pet_trait.php';
+    require_once __DIR__ . '/../classes_and_traits/classes/primitives/base_item.php';
+    require_once __DIR__ . '/../classes_and_traits/classes/primitives/features.php';
+    require_once __DIR__ . '/../classes_and_traits/classes/extended/pet_item.php';
     require_once __DIR__ . './functions.php';
 
     $products       =   [
@@ -129,15 +128,6 @@
                             ]
                         ];       
     
-    // $single_item    =   [
-    //                         "category"      =>  0,
-    //                         "brand"         =>  "",
-    //                         "product"       =>  "",
-    //                         "description"   =>  "",
-    //                         "price"         =>  0,
-    //                         "img_url"       =>  ""
-    //                     ]; 
-
     $categories     =   [
                             "Dog"       =>  "fa-dog",
                             "Cat"       =>  "fa-cat",
