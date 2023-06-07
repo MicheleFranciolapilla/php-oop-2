@@ -8,7 +8,6 @@
     require_once __DIR__ . '/../php_fragments_and_partials/partial_top.php';
 ?>
     <div id="direct_search_page" class="page">
-        <h1>welcome to search</h1>
 <?php
     require_once __DIR__ . '/../php_components/component_header_nav.php';
     require_once __DIR__ . '/../php_components/component_counter.php';

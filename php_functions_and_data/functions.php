@@ -95,7 +95,7 @@
         }
         else
         {
-            $GLOBALS['menu_items'] = ['<i class="fa-solid fa-backward"></i> Indietro'];
+            $GLOBALS['menu_items'] = ['<i class="fa-solid fa-backward"></i> Indietro alla pagina principale'];
         }
     }
 
@@ -122,12 +122,16 @@
         }
     }
 
-    function proceed_with_text_search($text)
+    function search_text(Pet_Item $item)
     {
-
+        $text = strtolower($_SESSION['text_to_search']);
+        return  (str_contains(strtolower($item->get_pet_str()), $text) ||
+                str_contains(strtolower($item->get_product()), $text) ||
+                str_contains(strtolower($item->features->brand), $text) ||
+                str_contains(strtolower($item->features->description), $text));
     }
 
-    function search_text($text)
+    function check_text($text)
     {
         if ((strlen($text) - substr_count($text, " ", 0)) <= 3)
         {
@@ -136,7 +140,6 @@
         }
         else
         {
-            // proceed_with_text_search($text);
             $_SESSION['text_to_search'] = $text;
             return true;
         }

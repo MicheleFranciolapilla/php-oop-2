@@ -10,7 +10,7 @@
     {
         try
         {
-            if (search_text($_GET['text_to_search']))
+            if (check_text($_GET['text_to_search']))
                 header("Location: ./direct_search.php");
         }
         catch(Exception $error)

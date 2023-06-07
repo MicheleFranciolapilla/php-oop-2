@@ -47,6 +47,6 @@
         <form class="d-flex me-3" action="./direct_search_check.php" method="get">
             <input class="form-control me-2" type="search" name="text_to_search" placeholder="Testo da cercare..." aria-label="Search" required>
             <button class="btn btn-outline-light" type="submit">Cerca</button>
-      </form>
+        </form>
     </nav>
 </div>

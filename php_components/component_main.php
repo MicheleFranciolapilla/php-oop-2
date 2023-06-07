@@ -10,13 +10,14 @@
             foreach($GLOBALS['items_collection'] as $index => $item):
         ?>
                 <?php
-                    if (($page == 'main') || ($page == $item->get_pet_str())):
+                    if (($page == 'main') || ($page == $item->get_pet_str()) || (($page == 'direct_search') && (search_text($item)))):
                 ?>
                         <div class="card position-relative py-2 d-flex flex-column justify-content-between align-items-center">
                             <div class="f_a_icon p-2 border border-2 rounded-circle">
                                 <?php echo $item->get_classes_tag() ?>
                             </div>
                             <div class="extra_info">
+                                <h6>Descrizione... <?= $item->features->description ?></h6>
                                 <h6>Disponibilità: <?= $item->get_amount() ?></h6>
                             </div>
                             <img src="<?php echo $item->features->get_img_url() ?>" alt="<?php echo $item->features->description ?>">
