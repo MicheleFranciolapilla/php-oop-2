@@ -16,6 +16,9 @@
                             <div class="f_a_icon p-2 border border-2 rounded-circle">
                                 <?php echo $item->get_classes_tag() ?>
                             </div>
+                            <div class="extra_info">
+                                <h6>Disponibilità: <?= $item->get_amount() ?></h6>
+                            </div>
                             <img src="<?php echo $item->features->get_img_url() ?>" alt="<?php echo $item->features->description ?>">
                             <div class="info border border-2 border-dark rounded-3 bg-info">
                                 <span><?php echo $item->features->brand ?></span>

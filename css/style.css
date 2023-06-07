@@ -120,6 +120,18 @@ main
     border: 3px solid lightgreen;
 }
 
+#card_set > .card:hover
+{
+    cursor: pointer;
+    border-color: blue;
+}
+
+#card_set > .card:hover .f_a_icon
+{
+    background-color: blue;
+    color: white;
+}
+
 .card .f_a_icon
 {
     display: flex;
@@ -134,6 +146,26 @@ main
 .f_a_icon i
 {
     font-size: 1rem;
+}
+
+.card:hover .extra_info
+{
+    display: block;
+}
+
+.card .extra_info
+{
+    display: none;
+    width: 75%;
+    text-align: center;
+    color: white;
+    border: 2px solid black;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.7);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%);
 }
 
 .card img
