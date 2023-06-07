@@ -3,5 +3,5 @@
     session_destroy_all();
     session_check_and_start();
     $_SESSION['new'] = true;
-    header("Location: ./pages/main_page.php")
+    header("Location: ./pages/main_page.php");
 ?>

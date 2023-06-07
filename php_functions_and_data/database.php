@@ -149,6 +149,10 @@
         create_collection();
     }
 
-    $items_collection = [];
-    create_items_collection();
+    if (($_SESSION['page'] != 'direct_search_check') && ($_SESSION['page'] != 'direct_search'))
+    {
+        $items_collection = [];
+        create_items_collection();
+    }
+
 ?>

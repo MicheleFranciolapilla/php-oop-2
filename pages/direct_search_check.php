@@ -5,15 +5,18 @@
     $_SESSION['page_index'] = -2;
     require_once __DIR__ . '/../php_functions_and_data/functions.php';
     require_once __DIR__ . '/../php_functions_and_data/database.php';
-    require_once __DIR__ . '/../php_fragments_and_partials/partial_top.php';
+
     if (isset($_GET['text_to_search']))
     {
         try
         {
-            search_text($_GET['text_to_search']);
+            if (search_text($_GET['text_to_search']))
+                header("Location: ./direct_search.php");
         }
         catch(Exception $error)
         {
+            require_once __DIR__ . '/../php_fragments_and_partials/partial_top.php';
+
             echo '<h2 class="text-center text-warning mt-5">' . $error->getMessage() . '</h2>';
 ?>
             <form class="d-flex justify-content-center" action="./main_page.php" method="post">
@@ -22,7 +25,9 @@
             </form>
 <?php
             exit();
+            require_once __DIR__ . '/../php_fragments_and_partials/partial_bottom.php';
         }
     }
-    require_once __DIR__ . '/../php_fragments_and_partials/partial_bottom.php';
+    else
+        header("Location: ./direct_search.php");
 ?>
