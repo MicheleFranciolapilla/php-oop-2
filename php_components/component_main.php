@@ -36,6 +36,11 @@
                 ?>
         <?php
             endforeach;
+            if (($page == 'direct_search') && ($counter == 0)):
+        ?>
+                <h2 class="mx-auto mt-5 text-warning">La ricerca non ha prodotto risultati</h2>
+        <?php
+            endif;
         ?>
     </section>
 </main>
