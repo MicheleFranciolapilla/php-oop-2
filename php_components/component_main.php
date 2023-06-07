@@ -17,8 +17,9 @@
                                 <?php echo $item->get_classes_tag() ?>
                             </div>
                             <div class="extra_info">
-                                <h6>Descrizione... <?= $item->features->description ?></h6>
-                                <h6>Disponibilità: <?= $item->get_amount() ?></h6>
+                                <h6>Descrizione: <span><?= $item->features->description ?></span>
+                                </h6>
+                                <h5>Disponibilità: <?= $item->get_amount() ?></h5>
                             </div>
                             <img src="<?php echo $item->features->get_img_url() ?>" alt="<?php echo $item->features->description ?>">
                             <div class="info border border-2 border-dark rounded-3 bg-info">

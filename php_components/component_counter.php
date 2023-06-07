@@ -9,9 +9,13 @@
     ?>
             <h5>Articoli presenti in pagina: <?= count($GLOBALS['items_collection']) ?></h5>
     <?php
-        else:
+        elseif ($_SESSION['page'] != 'direct_search'):
     ?>
             <h5>Articoli presenti in pagina: <?= $_SESSION['category_counters'][$_SESSION['page_index']] ?></h5>
+    <?php
+        else:
+    ?>
+            <h5>Articoli risultanti dalla ricerca.....</h5>
     <?php
         endif;
     ?>

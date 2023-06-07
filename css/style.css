@@ -163,16 +163,30 @@ main
 .card .extra_info
 {
     display: none;
-    width: 75%;
+    width: 105%;
+    color: yellow;
     text-align: left;
-    color: white;
-    border: 2px solid black;
+    padding: 0 5px;
+    border: 2px solid yellow;
     border-radius: 5px;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.9);
     position: absolute;
     left: 50%;
-    top: 50%;
+    top: 30%;
     transform: translateX(-50%);
+}
+
+.card .extra_info span
+{
+    margin-left: 8px;
+    color: white;
+    font-size: x-small;
+}
+
+.card .extra_info > h5
+{
+    padding-top: 5px;
+    text-align: center;
 }
 
 .card img
