@@ -16,7 +16,7 @@
             endif;
         ?>
     </header>
-    <nav class="d-flex bg-success">
+    <nav class="d-flex justify-content-between bg-success">
         <ul id="menu_items" class="d-flex px-5">
             <?php
                 foreach($menu_items as $index => $item):
@@ -44,5 +44,9 @@
                 endforeach;
             ?>
         </ul>
+        <form class="d-flex me-3" action="./direct_search_check.php" method="get">
+            <input class="form-control me-2" type="search" name="text_to_search" placeholder="Testo da cercare..." aria-label="Search" required>
+            <button class="btn btn-outline-light" type="submit">Cerca</button>
+      </form>
     </nav>
 </div>

@@ -122,4 +122,24 @@
         }
     }
 
+    function proceed_with_text_search($text)
+    {
+
+    }
+
+    function search_text($text)
+    {
+        if ((strlen($text) - substr_count($text, " ", 0)) <= 3)
+        {
+            throw new Exception("Testo non conforme o troppo breve!<br>Verrai reindirizzato alla pagina principale!");
+            return false;
+        }
+        else
+        {
+            // proceed_with_text_search($text);
+            $_SESSION['text_to_search'] = $text;
+            return true;
+        }
+    }
+
 ?>

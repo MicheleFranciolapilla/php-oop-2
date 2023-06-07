@@ -66,6 +66,12 @@ nav *
     height: 100%;
 }
 
+nav form
+{
+    height: 80%;
+    align-self: center;
+}
+
 #menu_items
 {
     column-gap: 2rem;

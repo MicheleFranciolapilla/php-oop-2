@@ -141,6 +141,7 @@
 
     if ($_SESSION['step'] === 'started')
     {
+        $_SESSION['text_to_search']     = "";
         $_SESSION['step']               = 'created';
         $_SESSION['data_collection']    = [];
         $_SESSION['amounts']            = [];
