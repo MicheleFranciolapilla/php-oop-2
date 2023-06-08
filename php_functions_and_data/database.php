@@ -1,5 +1,7 @@
 <?php
-
+    // File contenente tutti i dati del progetto.
+    // Nel presente file vengono inoltre invocate le funzioni di generazione randomica (una tantum) dei dati che comporranno l'array degli articoli dello shop.
+    // Si è optato per una unica generazione di dati (randomici) per ogni sessione, mantenendo intatti gli stessi anche nel routing.
     require_once __DIR__ . './session_methods.php';
     session_check_and_start();
 
@@ -9,6 +11,7 @@
     require_once __DIR__ . '/../classes_and_traits/classes/extended/pet_item.php';
     require_once __DIR__ . './functions.php';
 
+    // Array multidimensionale associativo di partenza (da cui vengono selezionati gli articoli dello shop)
     $products       =   [
                             // Cani
                             [
@@ -128,17 +131,23 @@
                             ]
                         ];       
     
+    // Array associativo "categoria pet" => "relativa classe font awesome"
     $categories     =   [
                             "Dog"       =>  "fa-dog",
                             "Cat"       =>  "fa-cat",
                             "Fish"      =>  "fa-fish-fins",
                             "Turtle"    =>  "fa-turtle"
                         ];
+    // Indici minimo e massimo per la determinazione randimica del numero di articoli dello shop
     $min_items_nr   =   10;
     $max_items_nr   =   37;
+    // Indice utilizzato per determinare (randomicamente) il quantitativo disponibile dei singoli articoli
     $max_amount     =   25;
+    // Array che conterrà le voci di menù
     $menu_items     =   [];
 
+    // In caso di prima istanza della main page vengono definite una serie di variabili di sessione (solo quelle variabili che non dovranno essere modificate durante il routing).
+    // In questa fase di prima istanza si procede anche al popolamento dei dati randomici relativi agli articoli dello shop
     if ($_SESSION['step'] === 'started')
     {
         $_SESSION['text_to_search']     = "";
@@ -149,7 +158,8 @@
         create_collection();
     }
 
+    // Ad ogni cambio di pagina, a partire dai dati presenti nello specifico array di sessione, si popola l'array degli oggetti. 
+    // E' stato scelto di mantenere costantemente popolato (solo di dati e non di oggetti) l'array "data_collection" e di popolare di volta in volta l'array di oggetti "items_collection" poichè, in caso contrario, si riscontrava, durante il routing, una destrutturazione degli oggetti stessi, con conseguente inutilizzabilità
     $items_collection = [];
     create_items_collection();
-
 ?>

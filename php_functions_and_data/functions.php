@@ -1,10 +1,13 @@
 <?php
+    // File contenente tutte le funzioni di generazione (per lo più randomica) e manipolazione dei dati del progetto
 
+    // Funzione che determina il numero di elementi che comporranno l'array degli articoli dello shop
     function set_total_items()
     {
         return mt_rand($GLOBALS['min_items_nr'], $GLOBALS['max_items_nr']);
     }
 
+    // Funzione che consente di stabilire la categoria pet di ciascun articolo. E' stata implementata una semplice logica che agevola (rendendo più probabili), in ordine, le categorie dog / cat / fish / turtle
     function randomize_pet() : int
     {
         $easing_bool = false;
@@ -23,6 +26,7 @@
         return $index;
     }
 
+    // Funzione atta a riconoscere se un particolare articolo sia già presente nell'array, evitando così la sua duplicazione
     function check_if_repeated(array $item_to_check)
     {
         $repeated = false;
@@ -37,12 +41,14 @@
         return $repeated;
     }
 
+    // Funzione che azzera tutti i contatori delle categorie pet
     function init_counters()
     {
         for ($i = 0; $i < count($GLOBALS['categories']); $i++)
             $_SESSION['category_counters'][$i] = 0;
     }
 
+    // Funzione che popola l'array (di sessione, dunque permanente) dei dati (solo dati, senza oggetti) degli articoli dello shop
     function create_collection()
     {
         $total_items = set_total_items();
@@ -73,6 +79,7 @@
         }
     }
 
+    // Funzione che, ad ogni cambio di pagina, popola l'array (dati + oggetti) degli articoli dello shop
     function create_items_collection()
     {
         $pet_keys = array_keys($GLOBALS['categories']);
@@ -87,6 +94,7 @@
         }
     }
 
+    // Funzione che, a seconda della pagina corrente, popola l'array con le relative voci di menù
     function set_menu_items()
     {
         if ($_SESSION['page'] === 'main')
@@ -99,29 +107,8 @@
         }
     }
 
-    function set_current_array()
-    {
-        var_dump($_SESSION['items_collection'][0]);
-        echo "<br>-----------------------------------------<br>";
-        if ($_SESSION['page'] === 'main')
-        {
-            $GLOBALS['current_array'] = $_SESSION['items_collection'];
-        }
-        else
-        {
-            $temporary_array = [];
-            $collection = $_SESSION['items_collection'];
-            foreach($collection as $index => $item)
-            {
-                $pet = $item;
-                var_dump($item);
-                if ($pet->category->get_str_category() == $_SESSION['page'])
-                $temporary_array[] = $item;
-            }
-            $GLOBALS['current_array'] = $temporary_array;
-        }
-    }
-
+    // Funzione usata per filtrare l'array degli articoli a seguito dell'input nella search bar
+    // Il filtraggio viene effettuato su "categoria pet", "nome prodotto", "marca del prodotto" e "descrizione"
     function search_text(Pet_Item $item)
     {
         $text = strtolower($_SESSION['text_to_search']);
@@ -131,9 +118,10 @@
                 str_contains(strtolower($item->features->description), $text));
     }
 
+    // Funzione che stabilisce la validità del testo digitato nella search bar. Nel caso di testo non valido genera una eccezione (Exception)
     function check_text($text)
     {
-        if ((strlen($text) - substr_count($text, " ", 0)) <= 3)
+        if ((strlen($text) - substr_count($text, " ", 0)) <= 2)
         {
             throw new Exception("Testo non conforme o troppo breve!<br>Verrai reindirizzato alla pagina principale!");
             return false;

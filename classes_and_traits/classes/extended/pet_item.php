@@ -1,9 +1,9 @@
 <?php
-
     include_once __DIR__ . '/../primitives/base_item.php';
     include_once __DIR__ . '/../primitives/features.php';
     include_once __DIR__ . '/../../traits/pet_trait.php';
 
+    // Classe derivata da "Base_Item" che aggiunge agli attributi della classe parent, anche un trait (per i dati di categoria del pet), un attributo di disponibilità quantitativa ed uno di selezione
     class Pet_Item extends Base_Item
     {
         use                         Pet_Trait;
@@ -38,6 +38,7 @@
             $this->is_selected = $_is_selected;
         }
 
+        // Metodo finalizzato a riconoscere se il parametro (di classe Pet_Item) coincida con l'oggetto in sè (nei suoi attributi più importanti)
         public  function is_it_you( Pet_Item $_item) : bool
         {
             $response = false;

@@ -1,4 +1,5 @@
 <?php
+    // Pagina incaricata di visualizzare i dati filtrati dalla ricerca
     require_once __DIR__ . '/../php_functions_and_data/session_methods.php';
     session_check_and_start();
     $_SESSION['page'] = 'direct_search';

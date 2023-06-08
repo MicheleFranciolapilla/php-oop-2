@@ -1,5 +1,5 @@
 <?php
-
+    // Classe utilizzata dalle classi "Base_Item" e "Features" per la gestione dei dati con doppia componente (booleana e vettoriale)
     class Bool_Array
     {
         private bool    $success;
@@ -31,5 +31,4 @@
             return $this->array_value;
         }
     }
-
 ?>

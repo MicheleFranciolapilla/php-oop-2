@@ -1,4 +1,5 @@
 <?php
+    // Pagina indirizzata per la visualizzazione dei soli articoli relativi ai cani
     require_once __DIR__ . '/../php_functions_and_data/session_methods.php';
     session_check_and_start();
     $_SESSION['page'] = 'Dog';

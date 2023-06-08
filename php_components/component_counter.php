@@ -1,4 +1,5 @@
 <?php
+    // Mini componente riportante il numero di articoli presenti nella pagina corrente
     require_once __DIR__ . '/../php_functions_and_data/session_methods.php';
     session_check_and_start();
 ?>

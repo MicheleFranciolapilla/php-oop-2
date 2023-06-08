@@ -1,4 +1,5 @@
 <?php
+    // Trait con la funzione di conservazione e restituzione dei dati (stringa, indice numerico e classi font awesome) della categoria del pet.
     trait Pet_Trait
     {
         public  string  $pet_str;
